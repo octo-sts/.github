@@ -4,7 +4,7 @@
 issuer: https://token.actions.githubusercontent.com
 subject_pattern: repo:chainguard-dev/infra:.*
 claim_pattern:
-  job_workflow_ref: chainguard-dev/infra/.github/workflows/verify-github.yaml@.*
+  job_workflow_ref: chainguard-dev/infra/.github/workflows/.terraform.yaml@.*
 
 permissions:
   members: write # to add/remove GitHub members
