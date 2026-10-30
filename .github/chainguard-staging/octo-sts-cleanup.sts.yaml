@@ -1,0 +1,21 @@
+# Copyright 2026 Chainguard, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+# Opts the octo-sts org in to Octo STS staging's policy cleanup job
+# (octo-sts/app#1075). Staging only reads .github/chainguard-staging and runs
+# the job as a dry run, so it only logs which staging policies it would remove.
+issuer: https://accounts.google.com
+# This is octo-sts-policy-cleanup@octo-sts-staging.iam.gserviceaccount.com,
+# provisioned by the octo-sts staging IaC.
+subject: "107826824498854971590"
+claim_pattern:
+  email: octo-sts-policy-cleanup@octo-sts-staging\.iam\.gserviceaccount\.com
+
+permissions:
+  # Push a branch removing unused policies.
+  contents: write
+  # Open the pull request from that branch.
+  pull_requests: write
+  # Report policies that only fail.
+  issues: write
+repositories: [] # Every repository in the org.
